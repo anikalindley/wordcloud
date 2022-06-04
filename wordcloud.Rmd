@@ -1,6 +1,22 @@
 ```{r}
+library("tm")
+library("RColorBrewer")
+library("wordcloud")
+library("tidyverse")
+```
 
-#test
+
+```{r}
+data = read.csv('/Users/anikalindley/Desktop/wordcloud/wordcloud/Hashtags.csv', header = FALSE)
+
+
+```
+
+```{r}
+words <- Corpus(VectorSource(data))
+words <- tm_map(words, content_transformer(tolower))
+words <- tm_map(words, removePunctuation)
+wordcloud(words, max.words = 50, random.order = FALSE, rot.per = 0.35, use.r.layout = FALSE, col = c("#0066CC", "#00CCFF", "#333FF", "#3366FF", "#3366FF"))
 
 
 ```
