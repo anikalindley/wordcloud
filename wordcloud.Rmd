@@ -7,7 +7,7 @@ library("tidyverse")
 
 
 ```{r}
-data = read.csv('/Users/anikalindley/Desktop/wordcloud/wordcloud/Hashtags.csv', header = FALSE)
+data = read.csv('/Users/anikalindley/Desktop/wordcloud/wordcloud/CertSummer.csv', header = FALSE)
 
 
 ```
@@ -16,7 +16,7 @@ data = read.csv('/Users/anikalindley/Desktop/wordcloud/wordcloud/Hashtags.csv', 
 words <- Corpus(VectorSource(data))
 words <- tm_map(words, content_transformer(tolower))
 words <- tm_map(words, removePunctuation)
-wordcloud(words, max.words = 50, random.order = FALSE, rot.per = 0.35, use.r.layout = FALSE, col = c("#0066CC", "#00CCFF", "#333FF", "#3366FF", "#3366FF"))
+wordcloud(words, max.words = 300, random.order = FALSE, rot.per = 0.35, scale=c(2.5,.5), use.r.layout = FALSE, col = c("#0066CC", "#00CCFF"))#, "#333FF"))#, "#99CCFF", "#3366FF"))
 
 
 ```
